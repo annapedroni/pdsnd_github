@@ -138,8 +138,8 @@ def time_stats(df):
         s_month = convert_month(m[0])
         print('No most popular month, we are considering data just for {}'.format(s_month.upper()))
     else:
-        m_c_month = convert_month(df['month'].mode()[0])
-        print('The most popular MONTH is: {}'.format(m_c_month.upper()))
+        most_common_month = convert_month(df['month'].mode()[0])
+        print('The most popular MONTH is: {}'.format(most_common_month.upper()))
 
 
     # display the most common day of week
@@ -147,8 +147,8 @@ def time_stats(df):
     if len(d) == 1:
         print('No most popular day, we are considering data just for {}'.format(d[0].upper()))
     else:
-        m_c_day = df['day_of_week'].mode()[0]
-        print('The most popular DAY is: {}'.format(m_c_day.upper()))
+        most_common_day = df['day_of_week'].mode()[0]
+        print('The most popular DAY is: {}'.format(most_common_day.upper()))
 
 
     # display the most common start hour
@@ -156,8 +156,8 @@ def time_stats(df):
     df['Hour'] = df['Start Time'].dt.hour
 
     # find the most common hour (from 0 to 23)
-    m_c_hour = df['Hour'].mode()[0]
-    print('The most popular HOUR is: {}'.format(m_c_hour))
+    most_common_hour = df['Hour'].mode()[0]
+    print('The most popular HOUR is: {}'.format(most_common_hour))
 
 
 
@@ -174,18 +174,18 @@ def station_stats(df):
 
 
     # finds the most commonly used start station
-    m_c_start = df['Start Station'].mode()[0]
+    most_common_start = df['Start Station'].mode()[0]
 
 
     # finds the most commonly used end station
-    m_c_end = df['End Station'].mode()[0]
+    most_common_end = df['End Station'].mode()[0]
 
 
     # finds the most frequent combination of start station and end station trip
     df['Trip'] = df['Start Station'] + ' - ' + df['End Station']
-    m_c_trip = df['Trip'].mode()[0]
+    most_common_trip = df['Trip'].mode()[0]
 
-    print('Most popular\n- START STATION is: {}\n- END STATION is: {}\n- TRIP is: {}\n'.format(m_c_start, m_c_end, m_c_trip))
+    print('Most popular\n- START STATION is: {}\n- END STATION is: {}\n- TRIP is: {}\n'.format(most_common_start, most_common_end, most_common_trip))
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
