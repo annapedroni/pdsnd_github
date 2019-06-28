@@ -267,8 +267,6 @@ def raw_data(df, city, month, day):
     raw_1 = input('Would you like to display the raw data? (Type "yes" to see the raw data, anything else to dismiss): ')
 
     if raw_1.lower() == 'yes':
-
-        print(raw_1)
         print(df[:5])
         stop = df_shape[0]
         for i in range(5, stop, 5):
